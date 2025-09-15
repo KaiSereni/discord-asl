@@ -1,17 +1,18 @@
-const {
+import { onRequest } from 'firebase-functions/https';
+import {
   ButtonStyleTypes,
   InteractionResponseFlags,
   InteractionResponseType,
   InteractionType,
   MessageComponentTypes,
   verifyKey
-} = require('discord-interactions');
-const { onRequest } = require('firebase-functions/https');
+} from 'discord-interactions';
+import { config } from 'dotenv'
 
 // This is for local testing. In production, Firebase handles environment variables.
-require('dotenv').config();
+config();
 
-exports.interactions = onRequest(async (req, res) => {
+export const interactions = onRequest(async (req, res) => {
   const signature = req.get('X-Signature-Ed25519');
   const timestamp = req.get('X-Signature-Timestamp');
   const rawBody = req.rawBody;
