@@ -8,9 +8,26 @@ import {
   verifyKey
 } from 'discord-interactions';
 import { config } from 'dotenv'
+import { initializeApp } from 'firebase-admin/app';
+import { getFirestore } from "firebase-admin/firestore";
 
-// This is for local testing. In production, Firebase handles environment variables.
 config();
+
+initializeApp();
+const db = getFirestore();
+
+// const docRef = db.collection('users').doc('alovelace');
+
+// await docRef.set({
+//   first: 'Ada',
+//   last: 'Lovelace',
+//   born: 1815
+// });
+
+// const snapshot = await db.collection('users').get();
+// snapshot.forEach((doc) => {
+//   console.log(doc.id, '=>', doc.data()); // alovelace => { first: 'Ada', last: 'Lovelace', born: 1815 }
+// });
 
 export const interactions = onRequest(async (req, res) => {
   const signature = req.get('X-Signature-Ed25519');

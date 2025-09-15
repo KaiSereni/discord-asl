@@ -67,3 +67,7 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# misc
+functions/firebase-keys.json
+**/.DS_Store
