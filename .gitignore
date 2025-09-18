@@ -71,3 +71,5 @@ node_modules/
 # misc
 functions/firebase-keys.json
 **/.DS_Store
+**/*.mp4
+temp_videos/

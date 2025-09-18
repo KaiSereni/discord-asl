@@ -1,10 +1,23 @@
 import 'dotenv/config';
 import { InstallGlobalCommands } from './utils.js';
 
+export const Commands = {
+  HELP: 'help',
+  LEARN: 'learn'
+}
+
 // Simple test command
-const TEST_COMMAND = {
-  name: 'test',
-  description: 'Basic command',
+const HELP_COMMAND = {
+  name: Commands.HELP,
+  description: 'Get help (we\'re not doing get help)',
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+};
+
+const LEARN_COMMAND = {
+  name: Commands.LEARN,
+  description: 'Use the bot!',
   type: 1,
   integration_types: [0, 1],
   contexts: [0, 1, 2],
@@ -28,6 +41,7 @@ const TEST_COMMAND = {
 //   contexts: [0, 2],
 // };
 
-const ALL_COMMANDS = [TEST_COMMAND];
+const ALL_COMMANDS = [HELP_COMMAND, LEARN_COMMAND];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
+console.log("Registration complete!");
